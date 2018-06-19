@@ -106,7 +106,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MdiForm";
             this.Text = "MdiForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MdiForm_FormClosed);
             this.Shown += new System.EventHandler(this.MdiForm_Shown);
+            this.Enter += new System.EventHandler(this.MdiForm_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();

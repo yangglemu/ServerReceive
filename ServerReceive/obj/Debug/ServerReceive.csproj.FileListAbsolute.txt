@@ -14,3 +14,4 @@ D:\VS2013\ServerReceive\ServerReceive\obj\Debug\ServerReceive.exe
 D:\VS2013\ServerReceive\ServerReceive\obj\Debug\ServerReceive.pdb
 D:\VS2013\ServerReceive\ServerReceive\obj\Debug\ServerReceive.csprojResolveAssemblyReference.cache
 D:\VS2013\ServerReceive\ServerReceive\obj\Debug\ServerReceive.Form_Input.resources
+D:\VS2013\ServerReceive\ServerReceive\bin\Debug\MySql.Data.xml

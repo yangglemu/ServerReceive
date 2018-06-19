@@ -7,6 +7,7 @@ namespace ServerReceive
 {
     public partial class MdiForm : Form
     {
+        public int comboxindex;
         MySqlCommand command;
         public DataTable m_dt;
         public MdiForm()
@@ -24,7 +25,8 @@ namespace ServerReceive
                 SetRowHeaderText();
             }
             var mainForm = this.ParentForm as MainForm;
-            mainForm.SetComboxToZero();
+            this.comboxindex = 0;
+            mainForm.SetComboxSelectedIndex(0);
         }
 
         private void dataGridView_DataSourceChanged(object sender, System.EventArgs e)
@@ -62,6 +64,20 @@ namespace ServerReceive
                     dataGridView.Columns["实收"].DefaultCellStyle.Format = "0.00";
                     dataGridView.Columns["找零"].DefaultCellStyle.Format = "0.00";
                 }
+            }
+        }
+
+        private void MdiForm_Enter(object sender, EventArgs e)
+        {
+            (this.ParentForm as MainForm).SetComboxSelectedIndex(comboxindex);
+        }
+
+        private void MdiForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            var mf = this.MdiParent as MainForm;
+            if (mf.MdiChildren.Length == 1)
+            {
+                mf.SetComboxSelectedIndex(0);
             }
         }
     }

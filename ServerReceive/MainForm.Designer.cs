@@ -113,7 +113,6 @@
             this.toolStripComboBox门店.Name = "toolStripComboBox门店";
             this.toolStripComboBox门店.Size = new System.Drawing.Size(130, 39);
             this.toolStripComboBox门店.ToolTipText = "选择门店";
-            this.toolStripComboBox门店.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox门店_SelectedIndexChanged);
             // 
             // toolStripButton_add_note
             // 

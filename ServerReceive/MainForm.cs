@@ -83,7 +83,8 @@ namespace ServerReceive
                     //command.Parameters.Add("start", MySqlDbType.DateTime).Value = select.dateTimePicker1.Value;
                     //command.Parameters.Add("end", MySqlDbType.DateTime).Value = select.dateTimePicker2.Value;
                     //command.CommandText = "select rq as 日期,text as 备注 from note where date(rq)>=date(?start) and date(rq)<date(?end) order by rq desc";
-                    command.CommandText = string.Format(@"select rq as 日期,text as 备注 from note where date(rq)>='{0}' and date(rq)<='{1}'",
+                    command.CommandText = string.Format(@"select rq as 日期,text as 备注 from note where 
+                        date(rq)>='{0}' and date(rq)<='{1}'",
                         select.dateTimePicker1.Value.ToShortDateString(),
                         select.dateTimePicker2.Value.ToShortDateString());
                     var dt = new DataTable();
@@ -108,6 +109,7 @@ namespace ServerReceive
                 toolStripComboBox门店.Items.Add(shop);
             }
             toolStripComboBox门店.SelectedIndex = 0;
+            this.toolStripComboBox门店.SelectedIndexChanged += this.toolStripComboBox门店_SelectedIndexChanged;
         }
 
         private void UpdateData()
@@ -404,13 +406,15 @@ namespace ServerReceive
             if (mdi == null) return;
             if (mdi.dataGridView.Columns.Contains("数量") && mdi.dataGridView.Columns.Contains("金额"))
             {
-                var shop = toolStripComboBox门店.Items[toolStripComboBox门店.SelectedIndex] as Shop;
-                if (shop.pname == "qb")
+                mdi.comboxindex = this.toolStripComboBox门店.SelectedIndex;
+                //when combox index is 0,shop.pname=='qb'
+                if (mdi.comboxindex == 0)
                 {
                     mdi.dataGridView.DataSource = mdi.m_dt;
                 }
                 else
                 {
+                    var shop = toolStripComboBox门店.Items[mdi.comboxindex] as Shop;
                     var drs = mdi.m_dt.Select("门店='" + shop.name + "'");
                     var dt = mdi.m_dt.Clone();
                     foreach (DataRow dr in drs)
@@ -502,11 +506,11 @@ namespace ServerReceive
             Show_Day(now, now);
         }
 
-        public void SetComboxToZero()
+        public void SetComboxSelectedIndex(int index)
         {
-            this.toolStripComboBox门店.SelectedIndexChanged -= new EventHandler(this.toolStripComboBox门店_SelectedIndexChanged);
-            this.toolStripComboBox门店.SelectedIndex = 0;
-            this.toolStripComboBox门店.SelectedIndexChanged += new EventHandler(this.toolStripComboBox门店_SelectedIndexChanged);
+            this.toolStripComboBox门店.SelectedIndexChanged -= this.toolStripComboBox门店_SelectedIndexChanged;
+            this.toolStripComboBox门店.SelectedIndex = index;
+            this.toolStripComboBox门店.SelectedIndexChanged += this.toolStripComboBox门店_SelectedIndexChanged;
         }
     }
 }
