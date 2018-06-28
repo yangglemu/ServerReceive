@@ -122,15 +122,21 @@ namespace ServerReceive
                 int insert = 0;
                 int old = 0;
                 int sum = pop3.Messages.Count;
+                int newShop = 0;
                 foreach (POP3_ClientMessage m in pop3.Messages)
                 {
                     var header = Mail_Message.ParseFromByte(m.HeaderToByte());
                     var subject = header.Subject;
-                    var ss = subject.Split('@'); // "wkl@2017-1-1 11:11:11"
-                    if (ss.Length != 2 || (!shops.Keys.Contains<string>(ss[0])))
+                    var ss = subject.Split('@'); // "wkl@2017-01-01"
+                    if (ss.Length != 2)
                     {
                         m.MarkForDeletion();
                         delete++;
+                        continue;
+                    }
+                    if (!shops.Keys.Contains<string>(ss[0]))
+                    {
+                        newShop++;
                         continue;
                     }
                     DateTime dt;
@@ -158,8 +164,8 @@ namespace ServerReceive
                     insert++;
                 }
 
-                MessageBox.Show(string.Format("共 {0} 条邮件,删除过期邮件 {1},略过已读邮件{2},读取新邮件 {3}.",
-                    sum, delete, old, insert), "数据处理报告：", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(string.Format("共 {0} 条邮件,删除过期邮件 {1}, 略过已读邮件 {2}, 读取新邮件 {3}.\r\n未识别门店邮件 {4}, (如此值大于零, 请添加新门店!)",
+                    sum, delete, old, insert, newShop), "数据处理报告：", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 pop3.Disconnect();
                 pop3.Dispose();
@@ -295,8 +301,18 @@ namespace ServerReceive
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            this.UpdateData();
-            Cursor.Current = Cursors.Default;
+            try
+            {
+                this.UpdateData();
+            }
+            catch (Exception se)
+            {
+                MessageBox.Show(se.Message, "Get Mails Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }
         }
 
         private void 全部关闭ToolStripMenuItem_Click(object sender, EventArgs e)
