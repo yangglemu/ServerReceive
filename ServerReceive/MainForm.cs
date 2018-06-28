@@ -168,7 +168,6 @@ namespace ServerReceive
                     sum, delete, old, insert, newShop), "数据处理报告：", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 pop3.Disconnect();
-                pop3.Dispose();
             }
         }
 
