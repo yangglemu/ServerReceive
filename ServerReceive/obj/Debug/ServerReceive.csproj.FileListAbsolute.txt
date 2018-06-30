@@ -1,0 +1,17 @@
+D:\VS2013\ServerReceive\ServerReceive\bin\Debug\ServerReceive.exe.config
+D:\VS2013\ServerReceive\ServerReceive\bin\Debug\ServerReceive.exe
+D:\VS2013\ServerReceive\ServerReceive\bin\Debug\ServerReceive.pdb
+D:\VS2013\ServerReceive\ServerReceive\bin\Debug\LumiSoft.Net.dll
+D:\VS2013\ServerReceive\ServerReceive\bin\Debug\MySql.Data.dll
+D:\VS2013\ServerReceive\ServerReceive\bin\Debug\LumiSoft.Net.xml
+D:\VS2013\ServerReceive\ServerReceive\obj\Debug\ServerReceive.Form_SelectDate.resources
+D:\VS2013\ServerReceive\ServerReceive\obj\Debug\ServerReceive.MainForm.resources
+D:\VS2013\ServerReceive\ServerReceive\obj\Debug\ServerReceive.MdiForm.resources
+D:\VS2013\ServerReceive\ServerReceive\obj\Debug\ServerReceive.NewShop.resources
+D:\VS2013\ServerReceive\ServerReceive\obj\Debug\ServerReceive.Properties.Resources.resources
+D:\VS2013\ServerReceive\ServerReceive\obj\Debug\ServerReceive.csproj.GenerateResource.Cache
+D:\VS2013\ServerReceive\ServerReceive\obj\Debug\ServerReceive.exe
+D:\VS2013\ServerReceive\ServerReceive\obj\Debug\ServerReceive.pdb
+D:\VS2013\ServerReceive\ServerReceive\obj\Debug\ServerReceive.csprojResolveAssemblyReference.cache
+D:\VS2013\ServerReceive\ServerReceive\obj\Debug\ServerReceive.Form_Input.resources
+D:\VS2013\ServerReceive\ServerReceive\bin\Debug\MySql.Data.xml
