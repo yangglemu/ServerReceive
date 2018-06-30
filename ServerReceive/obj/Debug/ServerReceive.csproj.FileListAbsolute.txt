@@ -1,7 +1,6 @@
 D:\VS2013\ServerReceive\ServerReceive\bin\Debug\ServerReceive.exe.config
 D:\VS2013\ServerReceive\ServerReceive\bin\Debug\ServerReceive.exe
 D:\VS2013\ServerReceive\ServerReceive\bin\Debug\ServerReceive.pdb
-D:\VS2013\ServerReceive\ServerReceive\bin\Debug\LumiSoft.Net.dll
 D:\VS2013\ServerReceive\ServerReceive\bin\Debug\MySql.Data.dll
 D:\VS2013\ServerReceive\ServerReceive\bin\Debug\LumiSoft.Net.xml
 D:\VS2013\ServerReceive\ServerReceive\obj\Debug\ServerReceive.Form_SelectDate.resources
