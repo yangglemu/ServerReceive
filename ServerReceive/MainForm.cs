@@ -295,8 +295,18 @@ namespace ServerReceive
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            this.UpdateData();
-            Cursor.Current = Cursors.Default;
+            try
+            {
+                this.UpdateData();
+            }
+            catch (Exception se)
+            {
+                MessageBox.Show(se.Message, "更新数据出错！", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }
         }
 
         private void 全部关闭ToolStripMenuItem_Click(object sender, EventArgs e)
